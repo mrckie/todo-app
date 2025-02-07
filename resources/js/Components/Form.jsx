@@ -36,7 +36,7 @@ const Form = () => {
             <input
                 type="text"
                 className="outline-none bg-transparent border border-gray-500 p-4 w-[300px] mb-6 text-white rounded-2xl placeholder:text-gray-400 focus:border-white "
-                placeholder="What do you want to do today?"
+                placeholder="What needs to be done?"
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
                 maxLength={32}
