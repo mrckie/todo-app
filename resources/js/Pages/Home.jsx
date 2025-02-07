@@ -1,7 +1,12 @@
+import { usePage } from "@inertiajs/react";
+import TodoList from "../Components/TodoList";
+
+
 export default function Home() {
+    const {tasks} = usePage().props;
     return (
         <>
-            <h1 className="text-red-500">finally this bitch is working!</h1>
+            <TodoList tasks={tasks || []} />
         </>
     );
 }
