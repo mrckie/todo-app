@@ -27,31 +27,47 @@ const Todo = ({ task }) => {
         setIsCompleted(!isCompleted);
     };
 
+    const formatDate = (dateString) => {
+        const options = {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+        };
+        return new Date(dateString).toLocaleString(undefined, options);
+    };
+
     return (
         <>
             {isEditing ? (
                 <Edit task={task} setIsEditing={setIsEditing} />
             ) : (
-                <div className="flex justify-between items-center bg-fuchsia-600 text-white py-3 px-4 rounded-md mb-4 cursor-pointer">
-                    {!isCompleted ? (
-                        <MdCheckBoxOutlineBlank
-                            className="text-xl "
-                            onClick={handleCompleted}
-                        />
-                    ) : (
-                        <IoIosCheckbox
-                            className="text-xl "
-                            onClick={handleCompleted}
-                        />
-                    )}
-                    <p
-                        className={`font-primary ${
-                            isCompleted ? "line-through" : ""
-                        }`}
-                    >
-                        {task.task}
-                    </p>
-                    <div className="flex item-center gap-x-4 ">
+                <div className="flex justify-between bg-fuchsia-600 text-white py-4 px-4 rounded-md mb-4 cursor-pointer">
+                    <div className="flex items-center">
+                        {!isCompleted ? (
+                            <MdCheckBoxOutlineBlank
+                                className="text-xl "
+                                onClick={handleCompleted}
+                            />
+                        ) : (
+                            <IoIosCheckbox
+                                className="text-xl "
+                                onClick={handleCompleted}
+                            />
+                        )}
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                        <p className={`${isCompleted ? "line-through" : ""}`}>
+                            {task.task}
+                        </p>
+                        <small className="text-gray-300 text-sxs pt-1">
+                            {formatDate(task.created_at)}
+                        </small>
+                    </div>
+
+                    <div className="flex items-center gap-x-4">
                         <AiFillEdit
                             className="text-xl hover:text-blue-500"
                             onClick={handleUpdate}

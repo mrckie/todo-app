@@ -37,6 +37,7 @@ const Edit = ({task, setIsEditing}) => {
                 className="outline-none bg-transparent border border-gray-500 p-4 w-[300px] mb-6 text-white rounded-2xl placeholder:text-gray-300"
                 placeholder="Update Task"
                 value={updateTask}
+                maxLength={32}
                 onChange={(e) => setUpdateTask(e.target.value)}
             />
             <button className="bg-fuchsia-600 hover:bg-fuchsia-500 hover:scale-105 duration-300 border-none p-4 text-white cursor-pointer rounded-2xl ml-4">

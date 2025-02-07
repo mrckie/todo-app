@@ -4,8 +4,8 @@ import Todo from "./Todo";
 
 const TodoList = ({ tasks = [] }) => {
     return (
-        <div className="container bg-gray-700 mt-20 p-8 rounded-md max-w-lg mx-auto">
-            <h1 className="text-white text-3xl font-semibold text-center mb-8">To-do App</h1>
+        <div className="container bg-gray-700 m-20 p-8 rounded-md max-w-lg mx-auto">
+            <h1 className="text-white text-3xl font-semibold text-center mb-9">To-do App</h1>
             <Form />
 
             <div>

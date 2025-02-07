@@ -10,7 +10,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                primary: "Poppins, san-serif",
+                primary: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
         },
     },

@@ -39,6 +39,7 @@ const Form = () => {
                 placeholder="What do you want to do today?"
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
+                maxLength={32}
             />
             <button className="bg-fuchsia-600 hover:bg-fuchsia-500 hover:scale-105 duration-300 border-none h-14 p-4 text-white cursor-pointer rounded-2xl">
                 Add Task
