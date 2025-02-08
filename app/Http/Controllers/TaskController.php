@@ -39,4 +39,11 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->delete();
     }
+
+    public function completionStatus(Request $request, $id)
+    {
+        $task = Task::findOrFail($id);
+        $task->update(['is_completed' => $request->is_completed]);
+
+    }
 }

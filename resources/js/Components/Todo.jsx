@@ -9,6 +9,7 @@ import { useState } from "react";
 const Todo = ({ task }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [isCompleted, setIsCompleted] = useState(false);
+
     const handleDelete = () => {
         if (confirm("Are you sure you want to delete this task?")) {
             router.delete(`/task/${task.id}`, {
@@ -24,7 +25,19 @@ const Todo = ({ task }) => {
     };
 
     const handleCompleted = () => {
-        setIsCompleted(!isCompleted);
+        const newStatus = !isCompleted;
+        setIsCompleted(newStatus);
+
+        router.put(
+            `/task/${task.id}/completion-status`,
+            { is_completed: newStatus },
+            {
+                onError: (errors) => {
+                    console.error("Error updating task:", errors);
+                    setIsCompleted(!newStatus);
+                },
+            }
+        );
     };
 
     const formatDate = (dateString) => {

@@ -27,7 +27,7 @@ const Edit = ({task, setIsEditing}) => {
             );
         } catch (error) {
             console.error("Unexpected error:", error);
-        }
+        }   
     };
 
     return (
