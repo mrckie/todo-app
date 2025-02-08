@@ -43,6 +43,3 @@ php artisan serve
 # Start React frontend
 npm run dev
 ```
-
-## 📜 License
-This project is open-source and available under the [MIT License](LICENSE).
